@@ -1,2 +1,2 @@
-# docker-images
-Official source for Docker configurations, images, and examples of Dockerfiles for Universal Equations and Third-Party products and projects 
+# Docker Images from Universal Equations
+This repository contains Dockerfiles and samples to build Docker imagess for Universal Equations and Third-Party products and projects 
