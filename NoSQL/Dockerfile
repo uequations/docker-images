@@ -2,7 +2,7 @@
 # 
 # Copyright (c) 2017 Oracle and/or its affiliates. All rights reserved.
 # 
-FROM oracle/serverjre:8
+FROM container-registry.oracle.com/java/serverjre:8
 
 MAINTAINER Mensah M Alkebu-Lan <malkebu-lan@uequations.com>
 
