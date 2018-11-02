@@ -28,3 +28,16 @@ services:
       - MYSQL_MASTER_HOST=mysql-master
       - MYSQL_MASTER_PORT_NUMBER=3306
       - MYSQL_MASTER_ROOT_PASSWORD=master_root_password
+  phpmyadmin:
+    image: 'bitnami/phpmyadmin:latest'
+    depends_on: 
+      - mysql-master
+    ports:
+      - '80:80'
+      - '443:443'
+    environment:
+      - PHPMYADMIN_ALLOW_NO_PASSWORD=false
+      - PHPMYADMIN_ALLOW_ARBITRARY_SERVER=false
+      - DATABASE_HOST=mysql-master
+    volumes:
+      - /home/opc/phpmyadmin/data:/bitnami/
