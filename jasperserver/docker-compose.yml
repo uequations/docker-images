@@ -1,0 +1,25 @@
+version: '2'
+services:
+  jasperreports:
+    image: 'bitnami/jasperreports:latest'
+    environment:
+      - MARIADB_HOST=
+      - MARIADB_PORT_NUMBER=3306
+      - MARIADB_ROOT_PASSWORD=
+      - JASPERREPORTS_DATABASE_USER=jasperreports
+      - JASPERREPORTS_DATABASE_NAME=jasperreports
+      - MYSQL_CLIENT_CREATE_DATABASE_NAME=jasperreports
+      - MYSQL_CLIENT_CREATE_DATABASE_USER=jasperreports
+      - MYSQL_CLIENT_CREATE_DATABASE_PASSWORD=
+    labels:
+      kompose.service.type: nodeport
+    ports:
+      - '80:8080'
+      - '443:8443'
+    volumes:
+      - 'jasperreports_data:/bitnami'
+    depends_on:
+      - mariadb
+volumes:
+  jasperreports_data:
+    driver: local
