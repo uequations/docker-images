@@ -5,6 +5,7 @@ services:
     image: 'bitnami/drupal:8-ol-7'
     labels:
       kompose.service.type: nodeport
+    restart: always  
     environment:
       - MARIADB_HOST=${MARIADB_HOST}
       - MARIADB_PORT_NUMBER=3306
