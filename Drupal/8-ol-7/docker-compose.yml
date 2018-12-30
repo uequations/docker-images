@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  drupal:
+    image: 'bitnami/drupal:8-ol-7'
+    labels:
+      kompose.service.type: nodeport
+    environment:
+      - MARIADB_HOST=${MARIADB_HOST}
+      - MARIADB_PORT_NUMBER=3306
+# Be sure drupal user is created in remote database.
+      - DRUPAL_DATABASE_USER=drupal
+      - DRUPAL_DATABASE_NAME=drupal
+      - DRUPAL_DATABASE_PASSWORD=drupal
+      - DRUPAL_EMAIL=support@uequations.com
+      - MARIADB_ROOT_PASSWORD=${MARIADB_DRUPAL_PASSWORD}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - 'drupal_data:/bitnami:z'
+volumes:
+  drupal_data:
+    driver: local
